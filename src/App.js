@@ -5,11 +5,18 @@ import { useState } from "react"
 
 function App() {
   const [feedback, setFeedback] = useState(FeedbackData)
+
+  const handleFeedback = id => {
+    if (window.confirm("are u sure ypu want to delete feed?")) {
+      setFeedback(feedback.filter(item => item.id !== id))
+    }
+  }
+
   return (
     <>
       <Header />
       <div className="container">
-        <FeedbackList feedback={feedback} />
+        <FeedbackList feedback={feedback} handleDelete={handleFeedback} />
       </div>
     </>
   )

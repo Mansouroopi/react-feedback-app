@@ -1,19 +1,15 @@
-import { useState } from "react"
-const FeedbackItem = () => {
-  const [rating, setRating] = useState(8)
-  const [review, setReview] = useState("cool apps so far i had used")
-  //   const handleClick = () => {
-  //     setRating(prev => {
-  //       return prev + 1
-  //     })
-  //     setReview("just cool")
-  //   }
+import Card from "./shared/Card"
+import { FaTimes } from "react-icons/fa"
+
+const FeedbackItem = ({ feed, handleDelete }) => {
   return (
-    <div className="card">
-      <div className="num-display">{rating}</div>
-      <div className="text-display">{review}</div>
-      {/* <button onClick={handleClick}>update state</button> */}
-    </div>
+    <Card reverse={true}>
+      <div className="num-display">{feed.rating}</div>
+      <button className="close" onClick={() => handleDelete(feed.id)}>
+        <FaTimes color="purple" />
+      </button>
+      <div className="text-display">{feed.text}</div>
+    </Card>
   )
 }
 
