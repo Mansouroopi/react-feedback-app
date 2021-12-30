@@ -1,5 +1,7 @@
 import Card from "./shared/Card"
 import { FaTimes } from "react-icons/fa"
+import PropTypes from 'prop-types'
+
 
 const FeedbackItem = ({ feed, handleDelete }) => {
   return (
@@ -11,6 +13,9 @@ const FeedbackItem = ({ feed, handleDelete }) => {
       <div className="text-display">{feed.text}</div>
     </Card>
   )
+}
+FeedbackItem.prototype = {
+  feed: PropTypes.object.isRequired
 }
 
 export default FeedbackItem
